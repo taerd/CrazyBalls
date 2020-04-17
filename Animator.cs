@@ -95,11 +95,10 @@ namespace CrazyBalls
                 }
 
                 cnt = consumer.rings.Count;
-                if(cnt != 0)
+                for(int i = 0; i < cnt; i++) 
                 {
-                    
-                    for(int i = 0; i < cnt; i++) 
-                    { 
+                    if (consumer.rings.Count != 0)
+                    {
                         if (consumer.rings[i].IsAlive)
                         {
                             br = new SolidBrush(consumer.rings[i].color);
@@ -108,10 +107,13 @@ namespace CrazyBalls
                         else
                         {
                             Monitor.Enter(consumer.rings);
-                            if(consumer.rings.Count != 0)
+                            consumer.rings.Remove(consumer.rings[i]);
+                            /*
+                            if (consumer.rings.Count != 0)
                             {
                                 consumer.rings.Remove(consumer.rings[i]);
                             }
+                            */
                             Monitor.PulseAll(consumer.rings);
                             Monitor.Exit(consumer.rings);
                             i--;
