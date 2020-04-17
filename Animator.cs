@@ -107,13 +107,13 @@ namespace CrazyBalls
                         else
                         {
                             Monitor.Enter(consumer.rings);
-                            consumer.rings.Remove(consumer.rings[i]);
-                            /*
+                            //consumer.rings.Remove(consumer.rings[i]);
+                            
                             if (consumer.rings.Count != 0)
                             {
                                 consumer.rings.Remove(consumer.rings[i]);
                             }
-                            */
+                            
                             Monitor.PulseAll(consumer.rings);
                             Monitor.Exit(consumer.rings);
                             i--;

@@ -47,8 +47,8 @@ namespace CrazyBalls
                     BallColor = Color.FromArgb(rand.Next(40, 255), 0, 0, 255);
                     break;
             }
-            dx = rand.Next(2,5);
-            dy = rand.Next(1,3);
+            dx = rand.Next(3,5);
+            dy = rand.Next(2,3);
         }
 
         public void Start()
